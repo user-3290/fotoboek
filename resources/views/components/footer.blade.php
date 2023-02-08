@@ -1,4 +1,4 @@
-<div class="relative flex flex-wrap pb-5 pr-5 text-sm text-white md:pl-40 footer bg-petrol pt-7 pl-7">
+<div class="relative flex flex-wrap pb-5 pr-5 text-sm text-white sm:pl-40 footer bg-petrol pt-7 pl-7">
     <div class="relative w-full pb-5 pl-10 lg:w-1/6 menu md:w-1/4 sm:w-1/2">
         <h3 class="text-base font-bold text-white">ons centrum</h3>
         <ul>

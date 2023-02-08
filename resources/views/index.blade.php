@@ -3,5 +3,5 @@
     Test pagina
 @stop
 @section('content')
-    <p class="text-red">test werkt</p>
+    <p class="text-red-500">test werkt</p>
 @stop

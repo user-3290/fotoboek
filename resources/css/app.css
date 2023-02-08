@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-petrol {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(17, 82, 106, var(--tw-bg-opacity)) !important
-}
-
 .footer:before {
   content: "";
   position: absolute;
@@ -16,84 +11,238 @@
   width: 120px;
   background-color: #fff;
   transform: skew(-30deg);
-  transform-origin: top
+  transform-origin: top;
 }
 
-@media (max-width:630px) {
+@media (max-width: 630px) {
   .footer:before {
-    width: unset
+    width: unset;
   }
 }
 
 .footer .menu:before {
+  content: "";
   width: 20px;
   height: 2px;
   background-color: #d92a2a;
   left: 0;
-  top: 8px
-}
-
-.footer .menu:after,
-.footer .menu:before {
-  content: "";
-  position: absolute
+  top: 8px;
+  position: absolute;
 }
 
 .footer .menu:after {
+  content: "";
   height: 12px;
   width: 12px;
   border-radius: 50%;
   border: 2px solid #d92a2a;
   background-color: #fff;
   top: 4px;
-  left: 20px
+  left: 20px;
+  position: absolute;
 }
 
 .footer .menu:hover:after {
-  background-color: #d92a2a
+  background-color: #d92a2a;
+}
+
+.footer .menu h3 {
+  /* margin: 0;
+  color: #ffffff;
+  */
 }
 
 .footer .menu a:hover {
-  color: #d92a2a
+  color: #d92a2a;
+}
+
+.footer ul {
+  /* @media (--mobile) {
+    padding-left: 0;
+ }
+  */
+}
+
+.footer .logos {
+  /* padding: 0;
+  */
 }
 
 .footer .logos ul li {
   overflow: visible;
   text-indent: -9999px;
   float: left;
-  margin: 0 0 0 8px
+  margin: 0 0 0 8px;
 }
 
 .footer .logos ul li a {
-  background: url(https://www.cvovolt.be/img/logos/h11-go-ehb.png) no-repeat;
+  background: url('https://cdn.cvovolt.be/logos/h11-go-ehb.png') no-repeat;
   width: 100%;
   height: 100%;
-  display: block
+  display: block;
 }
 
 .footer .logos ul li a:hover {
-  background-position-y: -65px
+  background-position-y: -65px;
 }
 
 .footer .logos ul .go {
   width: 158px;
-  height: 65px
+  height: 65px;
 }
 
 .footer .logos ul .go a {
-  background-position-x: -52px
+  background-position-x: -52px;
 }
 
 .footer .logos ul .sg11 {
   width: 52px;
-  height: 65px
+  height: 65px;
 }
 
 .footer .logos ul .ehb {
   width: 165px;
-  height: 65px
+  height: 65px;
 }
 
 .footer .logos ul .ehb a {
-  background-position-x: -210px
+  background-position-x: -210px;
 }
+
+.footer .break {
+  /* flex-basis: 100%;
+  height: 0;
+  */
+}
+
+.footer .break.narrow {
+  /* display: none;
+  */
+}
+
+/* TODO: flex aanpassen zodat het zonder breaks werkt */
+/* .footer {
+  margin: 0;
+  background-color: #14526b;
+  position: relative;
+  padding: 30px 20px 20px 150px;
+  color: #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+  @media (--mobile) {
+    padding-left: 45px;
+ }
+  &:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    background-color: #ffffff;
+    transform: skew(-30deg);
+    transform-origin: top;
+    @media (--mobile) {
+      width: 60px;
+   }
+ }
+  & .menu {
+    width: 180px;
+    margin: 0px;
+    position: relative;
+    padding: 0 0 20px 40px;
+    @media (--mobile) {
+      width: 120px;
+   }
+    &:before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      background-color: #d92a2a;
+      left: 0;
+      top: 10px;
+      position: absolute;
+   }
+    &:after {
+      content: "";
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      border: 2px solid #d92a2a;
+      background-color: #ffffff;
+      top: 4px;
+      left: 20px;
+      position: absolute;
+   }
+    &:hover:after {
+      background-color: #d92a2a 
+   }
+    & h3 {
+      margin: 0;
+      color: #ffffff;
+   }
+    & a {
+      text-decoration: none;
+   }
+ }
+  & ul {
+    list-style-type: none;
+    padding: 10px 0px 10px 15px;
+    line-height: 1.4em;
+    margin: 0px;
+    @media (--mobile) {
+      padding-left: 0;
+   }
+ }
+  & a {
+    color: #FFF;
+ }
+  & .logos {
+    margin-left: auto;
+    width: 400px;
+    & ul {
+      padding: 0;
+      & li {
+        overflow: visible;
+        text-indent: -9999px;
+        float: left;
+        margin: 0 0 0 8px;
+        & a {
+          background: url('/img/logos/h11-go-ehb.png') no-repeat;
+          width: 100%;
+          height: 100%;
+          display: block;
+          &:hover {
+            background-position-y: -65px;
+         }
+       }
+     }
+      & .go {
+        width: 158px;
+        height: 65px;
+        & a {
+          background-position-x: -52px;
+       }
+     }
+      & .sg11 {
+        width: 52px;
+        height: 65px;
+     }
+      & .ehb {
+        width: 165px;
+        height: 65px;
+        & a {
+          background-position-x: -210px;
+       }
+     }
+   }
+ }
+  & .break {
+    flex-basis: 100%;
+    height: 0;
+    &.narrow {
+      display: none;
+   }
+ }
+}
+*/
