@@ -1,5 +1,5 @@
-<div class="relative flex flex-wrap pb-5 pr-5 text-sm text-white sm:pl-40 footer bg-petrol pt-7 pl-7">
-    <div class="relative w-full pb-5 pl-10 lg:w-1/6 menu md:w-1/4 sm:w-1/2">
+<footer class="relative flex flex-wrap pb-5 pr-5 mt-auto text-sm text-white xs:pl-40 footer bg-petrol pt-7 pl-7">
+    <div class="relative w-full pb-5 pl-10 lg:w-1/6 menu md:w-1/4 xs:w-1/2">
         <h3 class="text-base font-bold text-white">ons centrum</h3>
         <ul>
             <li><a href="/centrumreglement" target="_blank">centrumreglement</a></li>
@@ -10,7 +10,7 @@
             <li><a href="/internationalisering">internationalisering</a></li>
         </ul>
     </div>
-    <div class="relative w-full pb-5 pl-10 lg:w-1/6 menu md:w-1/4 sm:w-1/2">
+    <div class="relative w-full pb-5 pl-10 lg:w-1/6 menu md:w-1/4 xs:w-1/2">
         <h3 class="text-base font-bold text-white">cursisten</h3>
         <ul>
             <li><a href="https://moodle.cvovolt.be" target="_blank">leerplatform</a></li>
@@ -19,7 +19,7 @@
         </ul>
     </div>
     <div class="break narrow"></div>
-    <div class="relative w-full pb-5 pl-10 menu lg:w-1/6 md:w-1/4 sm:w-1/2">
+    <div class="relative w-full pb-5 pl-10 menu lg:w-1/6 md:w-1/4 xs:w-1/2">
         <h3 class="text-base font-bold text-white">informatie</h3>
         <ul>
             <li><a href="/contact">contact</a></li>
@@ -27,7 +27,7 @@
             <li><a href="/infomomenten">infomomenten</a></li>
         </ul>
     </div>
-    <div class="relative w-full pb-5 pl-10 menu lg:w-1/6 md:w-1/4 sm:w-1/2">
+    <div class="relative w-full pb-5 pl-10 menu lg:w-1/6 md:w-1/4 xs:w-1/2">
         <h3 class="text-base font-bold text-white">personeel</h3>
         <ul>
             <li><a href="https://personeel.cvovolt.be" target="_blank">personeel.cvovolt.be</a></li>
@@ -49,4 +49,4 @@
             <li class="go"><a href="https://www.g-o.be" target="_blank">GO!</a></li>
         </ul>
     </div>
-</div>
+</footer>

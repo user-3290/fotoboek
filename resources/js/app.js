@@ -1,3 +1,11 @@
-import './bootstrap';
+import "./bootstrap";
+import jQuery from "jquery";
+window.$ = jQuery;
 
-console.log("test");
+// Filters
+import "./filters/entitiy";
+import "./filters/function";
+import "./filters/region";
+import "./filters/team";
+
+import "./filters/select";
