@@ -1,3 +1,5 @@
+import urlParams from "./main";
+
 var teams = {
     results: [
         {
@@ -31,18 +33,17 @@ var teams = {
     ],
 };
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-
-const teamsParams =
-    urlParams.get("teams") !== null ? urlParams.get("teams").split(",") : null;
+var teamsParams = urlParams("teams");
 
 // WERKT NIET!!!!!!!!!!!!!! Vechten me Javascript is toegestaan
 if (teamsParams !== null)
     teamsParams.forEach((team_id) => {
-        teams.results.forEach((team) => {
-            let obj = team.children.find((o) => o.id === parseInt(team_id));
-            console.log(obj);
+        teams.results.forEach((entity) => {
+            entity.children.forEach((team) => {
+                if (team.id == team_id) team.selected = true;
+            });
+            // var obj = team.children.find((o) => o.id === team_id);
+            // obj.selected = true;
         });
     });
 

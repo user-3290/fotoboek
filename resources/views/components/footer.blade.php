@@ -2,19 +2,19 @@
     <div class="relative w-full pb-5 pl-10 lg:w-1/6 menu md:w-1/4 xs:w-1/2">
         <h3 class="text-base font-bold text-white">ons centrum</h3>
         <ul>
-            <li><a href="/centrumreglement" target="_blank">centrumreglement</a></li>
-            <li><a href="/privacyverklaring" target="_blank">privacy</a> |
-                <a href="/cookies">cookies</a>
+            <li><a href="https://cvovolt.be/centrumreglement" target="_blank">centrumreglement</a></li>
+            <li><a href="https://cvovolt.be/privacyverklaring" target="_blank">privacy</a> |
+                <a href="https://cvovolt.be/cookies" target="_blank">cookies</a>
             </li>
-            <li><a href="/evacuatieplannen">evacuatieplannen</a></li>
-            <li><a href="/internationalisering">internationalisering</a></li>
+            <li><a href="https://cvovolt.be/evacuatieplannen" target="_blank">evacuatieplannen</a></li>
+            <li><a href="https://cvovolt.be/internationalisering" target="_blank">internationalisering</a></li>
         </ul>
     </div>
     <div class="relative w-full pb-5 pl-10 lg:w-1/6 menu md:w-1/4 xs:w-1/2">
         <h3 class="text-base font-bold text-white">cursisten</h3>
         <ul>
             <li><a href="https://moodle.cvovolt.be" target="_blank">leerplatform</a></li>
-            <li><a href="/lokaal">lokaal</a></li>
+            <li><a href="https://cvovolt.be/lokaal" target="_blank">lokaal</a></li>
             <li><a href="https://mijn.cvovolt.be" target="_blank">mijn cvo volt</a></li>
         </ul>
     </div>
@@ -22,16 +22,16 @@
     <div class="relative w-full pb-5 pl-10 menu lg:w-1/6 md:w-1/4 xs:w-1/2">
         <h3 class="text-base font-bold text-white">informatie</h3>
         <ul>
-            <li><a href="/contact">contact</a></li>
-            <li><a href="/agenda">agenda</a></li>
-            <li><a href="/infomomenten">infomomenten</a></li>
+            <li><a href="https://cvovolt.be/contact" target="_blank">contact</a></li>
+            <li><a href="https://cvovolt.be/agenda" target="_blank">agenda</a></li>
+            <li><a href="https://cvovolt.be/infomomenten" target="_blank">infomomenten</a></li>
         </ul>
     </div>
     <div class="relative w-full pb-5 pl-10 menu lg:w-1/6 md:w-1/4 xs:w-1/2">
         <h3 class="text-base font-bold text-white">personeel</h3>
         <ul>
             <li><a href="https://personeel.cvovolt.be" target="_blank">personeel.cvovolt.be</a></li>
-            <li><a href="/vacatures">vacatures</a></li>
+            <li><a href="https://cvovolt.be/vacatures" target="_blank">vacatures</a></li>
         </ul>
     </div>
     <div class="break"></div>

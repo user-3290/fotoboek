@@ -1,3 +1,5 @@
+import urlParams from "./main";
+
 var functions = {
     results: [
         {
@@ -15,13 +17,7 @@ var functions = {
     ],
 };
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-
-const functionsParams =
-    urlParams.get("functions") !== null
-        ? urlParams.get("functions").split(",")
-        : null;
+var functionsParams = urlParams("functions");
 
 if (functionsParams !== null)
     functionsParams.forEach((function_id) => {

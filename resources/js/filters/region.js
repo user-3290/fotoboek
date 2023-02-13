@@ -1,3 +1,5 @@
+import urlParams from "./main";
+
 var regions = [
     {
         id: "aarschot",
@@ -21,20 +23,6 @@ var regions = [
     },
 ];
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-
-const regionsParams =
-    urlParams.get("regions") !== null
-        ? urlParams.get("regions").split(",")
-        : null;
-
-if (regionsParams !== null)
-    regionsParams.forEach((region_id) => {
-        let obj = regions.find((o) => o.id === region_id);
-        obj.selected = true;
-    });
-
 var data = $.map(regions, function (obj) {
     obj.id = obj.id || obj.pk; // replace pk with your identifier
 
@@ -53,6 +41,18 @@ $("#region").select2({
     language: "nl",
 });
 
+$("#region").next(".select2-container").hide();
+
+var regionsParams = urlParams("regions");
+
+if (regionsParams !== null) {
+    regionsParams.forEach((region_id) => {
+        let obj = regions.find((o) => o.id === region_id);
+        obj.selected = true;
+    });
+    $("#region").next(".select2-container").hide();
+}
+
 $("#function").on("select2:select", function (e) {
     var data = e.params.data;
     if (data["id"] == 0) return $("#region").next(".select2-container").show();
@@ -60,5 +60,9 @@ $("#function").on("select2:select", function (e) {
 
 $("#function").on("select2:unselect", function (e) {
     var data = e.params.data;
-    if (data["id"] == 0) return $("#region").next(".select2-container").hide();
+    if (data["id"] == 0) {
+        $("#region").val("").trigger("change");
+        $("#region").next(".select2-container").hide();
+        return;
+    }
 });

@@ -1,3 +1,5 @@
+import urlParams from "./main";
+
 var entities = [
     {
         id: 1,
@@ -13,13 +15,7 @@ var entities = [
     },
 ];
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-
-const entitiesParams =
-    urlParams.get("entities") !== null
-        ? urlParams.get("entities").split(",")
-        : null;
+var entitiesParams = urlParams("entities");
 
 if (entitiesParams !== null)
     entitiesParams.forEach((entity_id) => {

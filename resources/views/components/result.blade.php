@@ -16,7 +16,7 @@
     <div class="overflow-hidden " style="background-color: rgba(0,0,0,0.5)" x-show="showModal"
         :class="{ 'absolute inset-0 z-10 flex items-center justify-center h-full': showModal }">
         <!--Dialog-->
-        <div class="w-11/12 max-h-screen scrollbar-thin scrollbar-thumb-rounded-full px-6 py-4 mx-auto space-y-10 overflow-auto text-left bg-white rounded shadow-lg sm:max-h-[36rem] md:max-h-[42rem] lg:max-h-[48rem] xl:max-h-[56rem] sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl"
+        <div class="w-11/12 max-h-screen px-6 py-4 mx-auto space-y-10 overflow-auto scrollbar-thin scrollbar-thumb-rounded-full text-left bg-white rounded shadow-lg sm:max-h-[36rem] md:max-h-[42rem] lg:max-h-[48rem] xl:max-h-[56rem] sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl"
             x-show="showModal" @click.away="showModal = false" x-transition:enter="ease-out duration-300"
             x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
 
