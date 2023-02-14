@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\DataController;
-use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\JsonController;
+use App\Models\Wisa\DataModel;
+use Illuminate\Support\Facades\log;
 
 class FotoboekController extends Controller
 {
@@ -21,7 +23,7 @@ class FotoboekController extends Controller
             $datacontroller = new DataController();
             $filtered = $datacontroller->filter($query, $functions, $entities, $regions, $teams);
 
-            // return view('test', ["query" => $query, "functions" => $functions, "entities" => $entities, "regions" => $regions, "teams" => $teams]);
+            // return view('test', ["array" => $filtered]);
             return view('index', ["data" => $filtered]);
         }
         return view('index');
@@ -37,5 +39,13 @@ class FotoboekController extends Controller
         $teams = isset($request->teams) ? $url .= "teams=" . implode(",", $request->teams) . "&" : null;
 
         return redirect(route('fotoboek.index') . $url);
+    }
+
+    function test()
+    {
+        $data = DataModel::all();
+        foreach ($data[0] as $column => $item)
+            Log::debug($column);
+        return view('test', ["array" => DataModel::all()]);
     }
 }

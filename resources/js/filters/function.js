@@ -1,28 +1,12 @@
 import urlParams from "./main";
-
-var functions = {
-    results: [
-        {
-            id: 1,
-            text: "Test",
-        },
-        {
-            id: 0,
-            text: "Leerkracht",
-        },
-        {
-            id: 2,
-            text: "Coördinator",
-        },
-    ],
-};
+import functions from "../../../storage/app/public/data/functions";
 
 var functionsParams = urlParams("functions");
 
 if (functionsParams !== null)
     functionsParams.forEach((function_id) => {
-        let obj = functions.results.find((o) => o.id === parseInt(function_id));
-        obj.selected = true;
+        let obj = functions.find((o) => o.id === parseInt(function_id));
+        if (obj) obj.selected = true;
     });
 
 var data = $.map(functions, function (obj) {

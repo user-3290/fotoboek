@@ -8,8 +8,8 @@
     {{-- Title will be given in file when layout is extended --}}
     <title>@yield('title')</title>
 
-    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
-        integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
     {{-- Include the Font Awesome --}}
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}" crossorigin="anonymous"
@@ -25,7 +25,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen overflow-x-hidden">
     {{-- Container section --}}
     <section class="w-full max-w-screen-lg min-h-full p-5 mx-auto">
         {{-- Include the header, the file can be found at /resources/views/components/header.blade.php --}}
@@ -37,6 +37,8 @@
 
     {{-- Include the footer, the file can be found at /resources/views/components/footer.blade.php --}}
     @include('components.footer')
+
+
 </body>
 
 </html>

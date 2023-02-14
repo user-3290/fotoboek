@@ -1,19 +1,5 @@
 import urlParams from "./main";
-
-var entities = [
-    {
-        id: 1,
-        text: "Test",
-    },
-    {
-        id: 14,
-        text: "Mode & Crea",
-    },
-    {
-        id: 17,
-        text: "Gids en reisleider",
-    },
-];
+import entities from "../../../storage/app/public/data/entities";
 
 var entitiesParams = urlParams("entities");
 
@@ -28,6 +14,7 @@ var data = $.map(entities, function (obj) {
 
     return obj;
 });
+
 $("#entity").select2({
     data: data,
     width: $(this).data("width")
@@ -38,3 +25,18 @@ $("#entity").select2({
     placeholder: "Entiteit(en)",
     closeOnSelect: false,
 });
+
+// $("#entity").select2({
+//     ajax: {
+//         url: "/storage/data/entities.json",
+//         dataType: "json",
+//         type: "GET",
+//     },
+//     width: $(this).data("width")
+//         ? $(this).data("width")
+//         : $(this).hasClass("w-100")
+//         ? "100%"
+//         : "style",
+//     placeholder: "Entiteit(en)",
+//     closeOnSelect: false,
+// });

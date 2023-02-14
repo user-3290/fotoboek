@@ -1,49 +1,14 @@
 import urlParams from "./main";
-
-var teams = {
-    results: [
-        {
-            id: 14,
-            text: "Crea & Mode",
-            children: [
-                {
-                    id: 1,
-                    text: "Test",
-                },
-                {
-                    id: 36,
-                    text: "Mode",
-                },
-                {
-                    id: 37,
-                    text: "Creatief",
-                },
-            ],
-        },
-        {
-            id: 17,
-            text: "Gids en reisleider",
-            children: [
-                {
-                    id: 40,
-                    text: "Gids en reisleider",
-                },
-            ],
-        },
-    ],
-};
+import teams from "../../../storage/app/public/data/teams";
 
 var teamsParams = urlParams("teams");
 
-// WERKT NIET!!!!!!!!!!!!!! Vechten me Javascript is toegestaan
 if (teamsParams !== null)
     teamsParams.forEach((team_id) => {
         teams.results.forEach((entity) => {
             entity.children.forEach((team) => {
                 if (team.id == team_id) team.selected = true;
             });
-            // var obj = team.children.find((o) => o.id === team_id);
-            // obj.selected = true;
         });
     });
 

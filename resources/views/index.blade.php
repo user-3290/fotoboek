@@ -5,7 +5,7 @@
 @stop
 @section('content')
     {{-- Start page content --}}
-    <section class="w-full">
+    <section class="w-full ">
         {{-- Include the filter, the file can be found at /resources/views/components/filter.blade.php --}}
         <x-filter />
 

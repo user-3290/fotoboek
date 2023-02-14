@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
+use App\Models\Wisa\DataModel;
+use App\Http\Controllers\JsonController;
 
 class DataController extends Controller
 {
@@ -51,8 +52,8 @@ class DataController extends Controller
                 "ENTITEIT" => "Hahaha test",
                 "ID_TEAM" => 1,
                 "TEAM" => "dfsqdf",
-                "REGIO_AARSCHOT" => "J",
-                "REGIO_DIEST" => null,
+                "REGIO_AARSCHOT" => null,
+                "REGIO_DIEST" => "J",
                 "REGIO_HAAGT" => null,
                 "REGIO_LEUVEN" => null,
                 "REGIO_TIENEN" => null,
@@ -90,7 +91,7 @@ class DataController extends Controller
                 "REGIO_HAAGT" => null,
                 "REGIO_LEUVEN" => null,
                 "REGIO_TIENEN" => null,
-                "PS_ID" => "7",
+                "PS_ID" => 7,
                 "PS_NAAM" => "sdfsdf",
                 "PS_VOORNAAM" => "qsdfsf",
                 "ID_FUNCTIE" => 5,
@@ -716,12 +717,14 @@ class DataController extends Controller
 
     function format($data)
     {
+        $jsonController = new JsonController();
+
         $formated = array();
         $grouped = $this->_group_by($data, 'PS_ID');
         foreach ($grouped as $group) {
             $user = [
-                "firstname" => $group[0]["PS_VOORNAAM"],
-                "lastname" => $group[0]["PS_NAAM"],
+                "firstname" => iconv('Windows-1250', 'UTF-8', ucfirst(strtolower($group[0]["PS_VOORNAAM"]))),
+                "lastname" => iconv('Windows-1250', 'UTF-8', ucfirst(strtolower($group[0]["PS_NAAM"]))),
                 "image" => "https://s.gravatar.com/avatar/fd2f83164d6242e75300c434b82b2f69?s=256",
             ];
             $functions = [];
@@ -733,18 +736,15 @@ class DataController extends Controller
                 if ($group_function["REGIO_LEUVEN"] !== null) $region = $region . "Leuven ";
                 if ($group_function["REGIO_TIENEN"] !== null) $region = $region . "Tienen ";
                 $function = [
-                    "function_id" => $group_function["ID_FUNCTIE"],
-                    "function" => $group_function["FUNCTIE"],
-                    "entity_id" => $group_function["ID_ENTITEIT"],
-                    "entity" => $group_function["ENTITEIT"],
-                    "team_id" => $group_function["ID_TEAM"],
-                    "team" => $group_function["TEAM"],
+                    "function_id" => $group_function["ID_FUNCTIE"] == 0 ? 9999999 : $group_function["ID_FUNCTIE"],
+                    "function" => iconv('Windows-1250', 'UTF-8', $group_function["FUNCTIE"]),
+                    "entity_id" => $group_function["ID_ENTITEIT"] == 0 ? 9999999 : $group_function["ID_ENTITEIT"],
+                    "entity" => iconv('Windows-1250', 'UTF-8', $group_function["ENTITEIT"]),
+                    "team_id" => $group_function["ID_TEAM"] == 0 ? 9999999 : $group_function["ID_TEAM"],
+                    "team" => iconv('Windows-1250', 'UTF-8', $group_function["TEAM"]),
                     "region" => $region,
-                    "extra" => $group_function["VERDUIDELIJKING"],
-                    "color" => [
-                        "background" => "lime",
-                        "text" => "black"
-                    ]
+                    "extra" => iconv('Windows-1250', 'UTF-8', $group_function["VERDUIDELIJKING"]),
+                    "color" => $jsonController->colors($group_function)
                 ];
 
                 $functions[] = $function;
@@ -755,10 +755,16 @@ class DataController extends Controller
         return $formated;
     }
 
+    function saveToCache()
+    {
+        Cache::put('data', 'value', -5);
+        $data = $this->format(DataModel::all());
+        Cache::put('data', $data, 31536000);
+    }
+
     function filter($query, $functions, $entities, $regions, $teams)
     {
-        $datacontroller = new DataController();
-        $data = $datacontroller->format(DataController::fake());
+        $data = Cache::get("data");
 
         $filtered = array();
         foreach ($data as $user) {
@@ -817,7 +823,7 @@ class DataController extends Controller
                 if ($team_check == null) $team_check = false;
             }
 
-            if ($q_check !== false && $function_check !== false && $entity_check !== false && $team_check !== false) $filtered[] = $user;
+            if ($q_check !== false && $function_check !== false && $entity_check !== false && $team_check !== false && $region_check !== false) $filtered[] = $user;
         }
 
         return $filtered;
@@ -827,7 +833,7 @@ class DataController extends Controller
     {
         $result = array();
         foreach ($array as $element) {
-            $result[$element['PS_ID']][] = $element;
+            $result[$element[$key]][] = $element;
         }
 
         return $result;

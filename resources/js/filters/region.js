@@ -55,12 +55,13 @@ if (regionsParams !== null) {
 
 $("#function").on("select2:select", function (e) {
     var data = e.params.data;
-    if (data["id"] == 0) return $("#region").next(".select2-container").show();
+    if (data["text"].toLowerCase() == "leerkracht")
+        return $("#region").next(".select2-container").show();
 });
 
 $("#function").on("select2:unselect", function (e) {
     var data = e.params.data;
-    if (data["id"] == 0) {
+    if (data["text"].toLowerCase() == "leerkracht") {
         $("#region").val("").trigger("change");
         $("#region").next(".select2-container").hide();
         return;

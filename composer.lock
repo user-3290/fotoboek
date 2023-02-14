@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe33f98a750b8c5a51b30c78bd3fab21",
+    "content-hash": "a09b14bb638d296634da65f8223c1b10",
     "packages": [
         {
             "name": "brick/math",
@@ -896,6 +896,60 @@
                 }
             ],
             "time": "2022-10-26T14:07:24+00:00"
+        },
+        {
+            "name": "kkszymanowski/laravel-6-firebird",
+            "version": "6.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KKSzymanowski/laravel-6-firebird.git",
+                "reference": "1dbb0b9c2931278c06c22193ecdcce88fcdc75be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KKSzymanowski/laravel-6-firebird/zipball/1dbb0b9c2931278c06c22193ecdcce88fcdc75be",
+                "reference": "1dbb0b9c2931278c06c22193ecdcce88fcdc75be",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "illuminate/database": ">=6.0",
+                "illuminate/support": ">=6.0",
+                "php": ">=7.2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Firebird\\FirebirdServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Firebird\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kuba Szymanowski",
+                    "email": "kubaszymanowski@gmail.com"
+                },
+                {
+                    "name": "Jacques van Zuydam",
+                    "email": "jtvanzuydam@gmail.com"
+                }
+            ],
+            "description": "A Firebird database package for Laravel 6",
+            "support": {
+                "issues": "https://github.com/KKSzymanowski/laravel-6-firebird/issues",
+                "source": "https://github.com/KKSzymanowski/laravel-6-firebird/tree/6.0.6"
+            },
+            "time": "2022-03-28T18:33:40+00:00"
         },
         {
             "name": "laravel/framework",

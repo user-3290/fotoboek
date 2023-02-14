@@ -62,6 +62,7 @@ module.exports = {
                 faq: "#e2eff4",
                 munt: "#d5e4e1",
                 muntdonker: "#b6d0cb",
+                snoep: "#E8C4CE",
             },
         },
     },
