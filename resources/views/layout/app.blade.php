@@ -4,6 +4,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="author" content="Matse Van Horebeek, matse@vanhorebeek.be">
+    <meta name="keywords" content="Fotoboek, Cvo, Cvo Volt, Volt, Go!, G-O">
+    <meta name="theme-color" content="#11526A">
+
+    <meta name="title" content="@yield('title')">
+    <meta name="description" content="">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ env('APP_URL') }}">
+    <meta property="og:title" content="@yield('title')">
+    <meta property="og:image" content="{{ env('APP_URL') }}/assets/images/png/screenshot.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ env('APP_URL') }}">
+    <meta property="twitter:title" content="@yield('title')">
+    <meta property="twitter:image" content="{{ env('APP_URL') }}/assets/images/png/screenshot.png">
+
+    <!-- Apple -->
+    <meta name='apple-mobile-web-app-status-bar-style' content='white'>
+    <meta name="apple-mobile-web-app-title" content="@yield('title')"> <!-- New in iOS6 -->
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-touch-fullscreen' content='yes'>
+
 
     {{-- Title will be given in file when layout is extended --}}
     <title>@yield('title')</title>
