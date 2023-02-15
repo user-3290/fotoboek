@@ -2,9 +2,9 @@
 
 <div class="" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
 
-    <div class="flex items-center w-full p-2 space-x-2 rounded-md cursor-pointer bg-munt hover:bg-muntdonker"
+    <div class="flex items-center w-full p-2 space-x-2 capitalize rounded-md cursor-pointer bg-munt hover:bg-muntdonker"
         @click="showModal=true">
-        <img class="object-cover w-8 h-8 rounded-full" src="{{ $data['image'] }}"
+        <img class="object-cover w-8 h-8 rounded-full " src="{{ $data['image'] }}"
             alt="Foto {{ $data['firstname'] }} {{ $data['lastname'] }}">
         <p>
             {{ $data['firstname'] }}
@@ -25,7 +25,7 @@
                 <div class="flex items-center space-x-4">
                     <img class="object-cover w-32 h-32 rounded-full" src="{{ $data['image'] }}"
                         alt="Foto {{ $data['firstname'] }} {{ $data['lastname'] }}">
-                    <p class="text-2xl font-bold">{{ $data['firstname'] }} {{ $data['lastname'] }}</p>
+                    <p class="text-2xl font-bold capitalize">{{ $data['firstname'] }} {{ $data['lastname'] }}</p>
                 </div>
                 <div class="flex p-2" @click="showModal = false"><i class="cursor-pointer fa-solid fa-xmark"></i></div>
             </div>

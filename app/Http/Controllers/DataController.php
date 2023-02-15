@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use App\Models\Wisa\DataModel;
 use App\Http\Controllers\JsonController;
 
@@ -729,12 +730,13 @@ class DataController extends Controller
             ];
             $functions = [];
             foreach ($group as $group_function) {
-                $region = "";
-                if ($group_function["REGIO_AARSCHOT"] !== null) $region = $region . "Aarschot ";
-                if ($group_function["REGIO_DIEST"] !== null) $region = $region . "Diest ";
-                if ($group_function["REGIO_HAAGT"] !== null) $region = $region . "Haagt ";
-                if ($group_function["REGIO_LEUVEN"] !== null) $region = $region . "Leuven ";
-                if ($group_function["REGIO_TIENEN"] !== null) $region = $region . "Tienen ";
+                $str_region = "";
+                $regions = Cache::get("regions");
+                foreach ($regions as $region) {
+                    $region["id"] = strtoupper($region["id"]);
+                    if ($group_function["REGIO_" . $region["id"]] !== null) $str_region = $str_region . $region["text"] . " ";
+                }
+
                 $function = [
                     "function_id" => $group_function["ID_FUNCTIE"] == 0 ? 9999999 : $group_function["ID_FUNCTIE"],
                     "function" => iconv('Windows-1250', 'UTF-8', $group_function["FUNCTIE"]),
@@ -742,7 +744,7 @@ class DataController extends Controller
                     "entity" => iconv('Windows-1250', 'UTF-8', $group_function["ENTITEIT"]),
                     "team_id" => $group_function["ID_TEAM"] == 0 ? 9999999 : $group_function["ID_TEAM"],
                     "team" => iconv('Windows-1250', 'UTF-8', $group_function["TEAM"]),
-                    "region" => $region,
+                    "region" => $str_region,
                     "extra" => iconv('Windows-1250', 'UTF-8', $group_function["VERDUIDELIJKING"]),
                     "color" => $jsonController->colors($group_function)
                 ];

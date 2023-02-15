@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\log;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 
 class JsonController extends Controller
 {
@@ -46,11 +47,36 @@ class JsonController extends Controller
 
     function regions($data)
     {
+        $coded = array(
+            array(
+                "id" => "aarschot",
+                "text" => "Aarschot"
+            ),
+            array(
+                "id" => "diest",
+                "text" => "Diest"
+            ),
+            array(
+                "id" => "tienen",
+                "text" => "Tienen"
+            ),
+            array(
+                "id" => "haagt",
+                "text" => "Haagt"
+            ),
+            array(
+                "id" => "leuven",
+                "text" => "Leuven"
+            ),
+        );
         $regions = array();
-        foreach ($data[0] as $column => $item)
-            Log::debug($column);
+        // foreach ($data[0] as $column => $item)
+        //     Log::debug($column);
 
-        $content = "var regions = " . json_encode($regions) . "; export default regions;";
+        Cache::put('regions', 'value', -5);
+        Cache::put('regions', $coded, 31536000);
+
+        $content = "var regions = " . json_encode($coded) . "; export default regions;";
 
         return Storage::disk('local')->put('public/data/regions.js', $content);
     }
@@ -85,13 +111,35 @@ class JsonController extends Controller
 
     function colors($data)
     {
+        // Het hoogste zal aanvaard worden
+        /* Beschikbare kleuren
+            Tekst en achtergrond:
+                Zwart -> black
+                Wit -> white
+                Indigo -> indigo
+                Petrol -> petrol
+                Teal -> teal
+                Mango -> mango
+                Lucht -> lucht
+                Pistache -> pistache
+                Snoep -> snoep
+                Zomer -> zomer
+                Azuur -> azuur
+                Lime -> lime
+                Kers -> kers
+                Aubergine -> aubergine
+                Framboos -> framboos
+                FaQ -> faq 
+                Munt -> munt
+                Munt Donker -> muntdonker
+        */
         $colors = array(
             array(
                 "fields" => "PS_VOORNAAM|PS_NAAM",
                 "values" => "miet|schmitz",
                 "colors" => array(
                     "background" => "snoep",
-                    "text" => "black"
+                    "text" => "white"
                 )
             ),
             array(
@@ -118,7 +166,7 @@ class JsonController extends Controller
             if (count($fields) !== count($values)) continue;
 
             for ($i = 0; $i < count($fields); $i++)
-                if ($data[$fields[$i]] !== $values[$i]) continue 2;
+                if (strtolower($data[$fields[$i]]) !== strtolower($values[$i])) continue 2;
 
             return $color["colors"];
         }

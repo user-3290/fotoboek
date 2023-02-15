@@ -35,9 +35,7 @@ class Kernel extends ConsoleKernel
             $JsonController->functions($data);
             $JsonController->entities($data);
             $JsonController->teams($data);
-
-            // $JsonController->regions($data);
-
+            $JsonController->regions($data);
         })->weekly()->sundays()->at('23:59'); // This will run every sunday at 23:59
         // })->everyMinute(); // -> Only for testing purposes.
     }

@@ -1,27 +1,13 @@
 import urlParams from "./main";
+import regions from "../../../storage/app/public/data/regions";
 
-var regions = [
-    {
-        id: "aarschot",
-        text: "Aarschot",
-    },
-    {
-        id: "diest",
-        text: "Diest",
-    },
-    {
-        id: "haagt",
-        text: "Haagt",
-    },
-    {
-        id: "leuven",
-        text: "Leuven",
-    },
-    {
-        id: "tienen",
-        text: "Tienen",
-    },
-];
+var regionsParams = urlParams("regions");
+
+if (regionsParams !== null)
+    regionsParams.forEach((region_id) => {
+        let obj = regions.find((o) => o.id === region_id);
+        if (obj) obj.selected = true;
+    });
 
 var data = $.map(regions, function (obj) {
     obj.id = obj.id || obj.pk; // replace pk with your identifier
@@ -36,22 +22,12 @@ $("#region").select2({
         : $(this).hasClass("w-100")
         ? "100%"
         : "style",
-    placeholder: "Regio('s)",
+    placeholder: "Regio(s)",
     closeOnSelect: false,
     language: "nl",
 });
 
-$("#region").next(".select2-container").hide();
-
-var regionsParams = urlParams("regions");
-
-if (regionsParams !== null) {
-    regionsParams.forEach((region_id) => {
-        let obj = regions.find((o) => o.id === region_id);
-        obj.selected = true;
-    });
-    $("#region").next(".select2-container").hide();
-}
+if (regionsParams == null) $("#region").next(".select2-container").hide();
 
 $("#function").on("select2:select", function (e) {
     var data = e.params.data;
