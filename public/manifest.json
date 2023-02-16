@@ -1,0 +1,17 @@
+{
+    "name": "Fotoboek",
+    "short_name": "Fotoboek",
+    "start_url": "/",
+    "background_color": "#11526A",
+    "description": "",
+    "display": "standalone",
+    "theme_color": "#11526A",
+    "icons": [
+        {
+            "src": "/assets/images/png/cvovolt.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

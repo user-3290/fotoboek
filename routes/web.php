@@ -20,6 +20,3 @@ Route::get('/', [FotoboekController::class, 'index'])
 
 Route::post('/', [FotoboekController::class, 'filter'])
     ->name('fotoboek.filter');
-
-Route::any('/test', [FotoboekController::class, 'test'])
-    ->name('fotoboek.test');

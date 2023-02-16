@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 
 class JsonController extends Controller
@@ -45,7 +44,7 @@ class JsonController extends Controller
         return Storage::disk('local')->put('public/data/entities.js', $content);
     }
 
-    function regions($data)
+    function regions()
     {
         $coded = array(
             array(
@@ -69,9 +68,6 @@ class JsonController extends Controller
                 "text" => "Leuven"
             ),
         );
-        $regions = array();
-        // foreach ($data[0] as $column => $item)
-        //     Log::debug($column);
 
         Cache::put('regions', 'value', -5);
         Cache::put('regions', $coded, 31536000);

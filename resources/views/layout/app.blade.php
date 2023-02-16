@@ -30,6 +30,19 @@
     <meta name='apple-mobile-web-app-capable' content='yes'>
     <meta name='apple-touch-fullscreen' content='yes'>
 
+    <!-- PWA  -->
+    <meta name="theme-color" content="#11526A" />
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/png/cvovolt.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
+
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function(reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    </script>
 
     {{-- Title will be given in file when layout is extended --}}
     <title>@yield('title')</title>
@@ -43,9 +56,11 @@
 
     {{-- Include Select2 --}}
     <link href="{{ asset('assets/css/select2.css') }}" rel="stylesheet" />
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="{{ asset('assets/js/select2.min.js') }}" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('assets/js/nl.select2.min.js') }}" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    {{-- Include jQuery --}}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     {{-- Load local files via vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])

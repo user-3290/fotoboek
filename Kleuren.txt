@@ -1,4 +1,0 @@
-standaard: Petrol
-nt2: Azuur
-tko: Lime
-miet: Snoep

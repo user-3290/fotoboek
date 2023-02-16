@@ -6,7 +6,7 @@ var entitiesParams = urlParams("entities");
 if (entitiesParams !== null)
     entitiesParams.forEach((entity_id) => {
         let obj = entities.find((o) => o.id === parseInt(entity_id));
-        obj.selected = true;
+        if (obj) obj.selected = true;
     });
 
 var data = $.map(entities, function (obj) {
@@ -25,18 +25,3 @@ $("#entity").select2({
     placeholder: "Entiteit(en)",
     closeOnSelect: false,
 });
-
-// $("#entity").select2({
-//     ajax: {
-//         url: "/storage/data/entities.json",
-//         dataType: "json",
-//         type: "GET",
-//     },
-//     width: $(this).data("width")
-//         ? $(this).data("width")
-//         : $(this).hasClass("w-100")
-//         ? "100%"
-//         : "style",
-//     placeholder: "Entiteit(en)",
-//     closeOnSelect: false,
-// });

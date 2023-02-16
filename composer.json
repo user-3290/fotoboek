@@ -1,13 +1,17 @@
 {
-    "name": "laravel/laravel",
+    "name": "cvovolt/fotoboek",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "Een fotoboek voor personeels leden om elkaar te leren kennen.",
+    "keywords": [
+        "cvo volt",
+        "fotoboek"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
         "kkszymanowski/laravel-6-firebird": "^6.0",
+        "ladumor/laravel-pwa": "^0.0.3",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"

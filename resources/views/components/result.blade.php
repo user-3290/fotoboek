@@ -36,31 +36,31 @@
                     <div
                         class="w-full p-3 rounded-md text-{{ $function['color']['text'] }} bg-{{ $function['color']['background'] }}">
                         @if ($function['function'] && $function['function'] !== null && $function['function'] !== '')
-                            <div class="flex justify-between p-2 space-x-1 text-right">
+                            <div class="flex justify-between p-2 space-x-1 text-right capitalize">
                                 <p class="font-bold">Functie:</p>
                                 <p>{{ $function['function'] }}</p>
                             </div>
                         @endif
                         @if ($function['region'] && $function['region'] !== null && $function['region'] !== '')
-                            <div class="flex justify-between p-2 space-x-1 text-right">
+                            <div class="flex justify-between p-2 space-x-1 text-right capitalize">
                                 <p class="font-bold">Regio:</p>
                                 <p>{{ $function['region'] }}</p>
                             </div>
                         @endif
                         @if ($function['entity'] && $function['entity'] !== null && $function['entity'] !== '')
-                            <div class="flex justify-between p-2 space-x-1 text-right">
+                            <div class="flex justify-between p-2 space-x-1 text-right capitalize">
                                 <p class="font-bold">Entiteit:</p>
                                 <p>{{ $function['entity'] }}</p>
                             </div>
                         @endif
                         @if ($function['team'] && $function['team'] !== null && $function['team'] !== '')
-                            <div class="flex justify-between p-2 space-x-1 text-right">
+                            <div class="flex justify-between p-2 space-x-1 text-right capitalize">
                                 <p class="font-bold">Team:</p>
                                 <p>{{ $function['team'] }}</p>
                             </div>
                         @endif
                         @if ($function['extra'] && $function['extra'] !== null && $function['extra'] !== '')
-                            <div class="flex justify-between p-2 space-x-1 text-right">
+                            <div class="flex justify-between p-2 space-x-1 text-right capitalize">
                                 <p class="font-bold">Verduidelijking:</p>
                                 <p>{{ $function['extra'] }}</p>
                             </div>

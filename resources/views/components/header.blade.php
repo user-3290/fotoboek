@@ -1,8 +1,8 @@
 <header class="flex justify-between w-full h-full pb-10">
     {{-- Logo --}}
     <a href="/" aria-current="page" class="nuxt-link-exact-active nuxt-link-active"><img
-            src="https://cvovolt.be/img/logos/cvovolt.png" class="hidden w-32 h-32 lg:block"> <img
-            src="https://cvovolt.be/img/logos/cvovolt_rechthoek.png" class="w-32 h-15 lg:hidden"></a>
+            src="{{ asset('/assets/images/png/cvovolt.png') }}" class="hidden w-32 h-32 lg:block"> <img
+            src="{{ asset('/assets/images/png/cvovolt_rechthoek.png') }}" class="w-32 h-15 lg:hidden"></a>
 
     {{-- User -> Firstname and lastname --}}
     <div class="flex items-end justify-end w-full min-h-full">

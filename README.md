@@ -30,13 +30,39 @@
 
 <p align="right">(<a href="#readme-top">Terug naar top</a>)</p>
 
+<!-- INSTALL THE PROJECT -->
+
+## Installatie
+
+### Voorwaarde
+
+-   Docker
+-   PHP **8.0 of hoger** in de docker
+-   Node.JS en NPM
+
+### Installatie
+
+#### Docker
+
+Zorg ervoor dat docker geïnstalleerd is op de server waar dat je de website op wilt hosten.
+
+#### Upload
+
+Upload al de bestanden van Github naar de server. De manier dat dit gebeurd kan op meerdere manieren via een git clone of het downloaden en dan handmatig op de server plaatsen.
+
+#### ENV
+
+Verander de .env.example naar .env en vul al de nodige velden in.
+
+<p align="right">(<a href="#readme-top">Terug naar top</a>)</p>
+
 <!-- USAGE EXAMPLES -->
 
 ## Gebruikswijze
 
 Bijna al de data wordt dynamisch opgehaald elke week op zondag om 23:59. De enige instellingen die in de code aangepast moeten worden zijn de kleuren en de regios
 
-#### Kleuren
+### Kleuren
 
 De kleuren aanpassen gaat snel en gemakkelijk, navigeer naar het bestand `/app/Http/Controllers/JsonController.php` en zoek de functie `colors`.
 
@@ -82,7 +108,7 @@ Munt Donker -> muntdonker
 
 <p align="right">(<a href="#readme-top">Terug naar top</a>)</p>
 
-#### Regio's
+### Regio's
 
 De kleuren aanpassen gaat snel en gemakkelijk, navigeer naar het bestand `/app/Http/Controllers/JsonController.php` en zoek de functie `regions`.
 

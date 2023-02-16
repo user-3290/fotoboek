@@ -5,7 +5,7 @@ var teamsParams = urlParams("teams");
 
 if (teamsParams !== null)
     teamsParams.forEach((team_id) => {
-        teams.results.forEach((entity) => {
+        teams.forEach((entity) => {
             entity.children.forEach((team) => {
                 if (team.id == team_id) team.selected = true;
             });
@@ -28,17 +28,3 @@ $("#team").select2({
     closeOnSelect: false,
     language: "nl",
 });
-
-// $("#entity").on("select2:select", function (e) {
-//     var data = e.params.data;
-//     return $("#team").next(".select2-container").show();
-// });
-
-// $("#entity").on("select2:unselect", function (e) {
-//     var data = e.params.data;
-//     return $("#team").next(".select2-container").hide();
-// });
-
-function undefined() {
-    // problem solved
-}
